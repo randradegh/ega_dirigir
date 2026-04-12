@@ -91,6 +91,15 @@ nav {
   transition: opacity 0.2s;
 }
 .nav-cta:hover { opacity: 0.85; }
+.nav-cta-contact {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(0, 212, 160, 0.45);
+}
+.nav-cta-contact:hover {
+  opacity: 1;
+  background: rgba(0, 212, 160, 0.1);
+}
 
 /* ── HERO ── */
 #hero {
@@ -129,6 +138,66 @@ nav {
   margin: 0 auto;
   width: 100%;
 }
+
+/* Sold out — franja superior del hero */
+.sold-out-ribbon {
+  grid-column: 1 / -1;
+  margin: -1rem 0 0.5rem;
+  padding: 1.25rem 1.5rem 1.35rem;
+  background: linear-gradient(145deg, rgba(245, 166, 35, 0.12) 0%, rgba(255, 77, 77, 0.08) 50%, rgba(14, 19, 24, 0.95) 100%);
+  border: 1px solid rgba(245, 166, 35, 0.45);
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 12px 40px rgba(0, 0, 0, 0.35);
+}
+.sold-out-line1 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.45;
+  margin-bottom: 0.45rem;
+}
+.sold-out-accent {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: #ffc14a;
+  text-shadow:
+    0 0 24px rgba(245, 166, 35, 0.55),
+    0 0 2px rgba(0, 0, 0, 0.8);
+  margin-right: 0.35rem;
+  white-space: nowrap;
+}
+.sold-out-line2 {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 62ch;
+}
+.sold-out-line2 strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.sold-out-inline .sold-out-accent {
+  font-size: 1.15em;
+  margin-right: 0.15rem;
+  text-shadow: 0 0 16px rgba(245, 166, 35, 0.4);
+}
+
+.hero-eyebrow-soldout {
+  background: rgba(245, 166, 35, 0.08);
+  border-color: rgba(245, 166, 35, 0.28);
+  color: rgba(232, 228, 220, 0.92);
+}
+.hero-eyebrow-soldout::before {
+  background: var(--accent2);
+  animation: none;
+}
+
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -838,8 +907,16 @@ section { padding: 6rem 5vw; }
   margin-bottom: 0.4rem;
   text-transform: uppercase;
 }
+.form-group .label-optional {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 0.68rem;
+  opacity: 0.85;
+}
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
   width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -852,11 +929,18 @@ section { padding: 6rem 5vw; }
   transition: border-color 0.2s;
   -webkit-appearance: none;
 }
+.form-group textarea {
+  min-height: 7rem;
+  resize: vertical;
+  line-height: 1.55;
+}
 .form-group input:focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
   border-color: rgba(0,212,160,0.4);
 }
-.form-group input::placeholder { color: rgba(122,128,144,0.5); }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(122,128,144,0.5); }
 .form-group select option { background: var(--surface2); }
 .form-row {
   display: grid;
@@ -977,6 +1061,8 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .sold-out-ribbon { margin-top: 0; padding: 1rem 1.1rem 1.15rem; }
+  .sold-out-accent { white-space: normal; display: inline; }
   .hero-card { display: none; }
   .pricing-wrap { grid-template-columns: 1fr; }
   .form-wrap { grid-template-columns: 1fr; gap: 2.5rem; }

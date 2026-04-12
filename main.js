@@ -32,40 +32,16 @@ function web3FormsErrorMessage(data) {
   return data.body?.message || data.message || data.error || "";
 }
 
-const MODALIDAD_LABELS = {
-  individual: "Individual — uso personal",
-  "corporativo-5": "Corporativo — 5 a 10 personas",
-  "corporativo-mas": "Corporativo — más de 10 personas",
-};
-
-const HERRAMIENTA_LABELS = {
-  chatgpt: "ChatGPT",
-  gemini: "Gemini",
-  claude: "Claude",
-  varias: "Varias",
-  ninguna: "Todavía no uso ninguna",
-};
-
-function labelModalidad(value) {
-  return MODALIDAD_LABELS[value] || value || "—";
-}
-
-function labelHerramienta(value) {
-  return HERRAMIENTA_LABELS[value] || value || "—";
-}
-
-function buildRegistrationEmailMessage({
+function buildContactEmailMessage({
   nombre,
   apellido,
   email,
   empresa,
-  cargo,
-  modalidadKey,
-  herramientaKey,
+  mensaje,
   pageUrl,
 }) {
   const line = "────────────────────────────────────────";
-  const fullName = `${nombre} ${apellido}`.trim();
+  const fullName = [nombre, apellido].filter(Boolean).join(" ").trim() || nombre || "—";
   const sentAt = new Intl.DateTimeFormat("es-MX", {
     dateStyle: "full",
     timeStyle: "short",
@@ -73,32 +49,30 @@ function buildRegistrationEmailMessage({
   }).format(new Date());
 
   return [
-    "NUEVA INSCRIPCIÓN · DIRIGIR INTELIGENCIAS",
+    "CONSULTA / COMENTARIO · DIRIGIR INTELIGENCIAS (SOLD OUT)",
     line,
     "",
     "CONTACTO",
-    `  Nombre completo     ${fullName}`,
+    `  Nombre              ${fullName}`,
     `  Correo              ${email}`,
     "",
     "ORGANIZACIÓN",
     `  Empresa u org.      ${empresa || "—"}`,
-    `  Cargo o rol         ${cargo || "—"}`,
     "",
-    "INTERÉS EN EL PROGRAMA",
-    `  Modalidad           ${labelModalidad(modalidadKey)}`,
-    `  Herramienta IA      ${labelHerramienta(herramientaKey)}`,
+    "MENSAJE",
+    mensaje || "—",
     "",
     line,
     `Origen del formulario: ${pageUrl}`,
     `Enviado (CDT): ${sentAt}`,
     "",
     "—",
-    "Responde a este correo para contactar directamente al interesado (Reply-To: su email).",
+    "Responde a este correo para contactar directamente (Reply-To: su email).",
   ].join("\n");
 }
 
-function initRegistrationForm() {
-  const form = document.getElementById("reg-form");
+function initContactForm() {
+  const form = document.getElementById("contact-form");
   const errorEl = document.getElementById("form-error");
   if (!form) return;
 
@@ -135,31 +109,27 @@ function initRegistrationForm() {
       errorEl.textContent = "";
     }
 
-    const herramientaKey = document.getElementById("herramienta")?.value ?? "";
-    const modalidadKey = getVal("modalidad");
     const nombre = getVal("nombre");
     const apellido = getVal("apellido");
     const email = getVal("email");
     const empresa = getVal("empresa");
-    const cargo = getVal("cargo");
+    const mensaje = (document.getElementById("mensaje")?.value ?? "").trim();
     const pageUrl = window.location.href;
 
-    const message = buildRegistrationEmailMessage({
+    const message = buildContactEmailMessage({
       nombre,
       apellido,
       email,
       empresa,
-      cargo,
-      modalidadKey,
-      herramientaKey,
+      mensaje,
       pageUrl,
     });
 
-    const fullName = `${nombre} ${apellido}`.trim();
+    const fullName = [nombre, apellido].filter(Boolean).join(" ").trim() || nombre;
 
     const payload = {
       access_key: key,
-      subject: `[Dirigir Inteligencias] ${fullName}`,
+      subject: `[Dirigir Inteligencias] Consulta — ${fullName}`,
       from_name: fullName,
       email,
       message,
@@ -219,5 +189,5 @@ function initSessionAccordion() {
 document.addEventListener("DOMContentLoaded", () => {
   initSessionAccordion();
   initScrollAnimations();
-  initRegistrationForm();
+  initContactForm();
 });

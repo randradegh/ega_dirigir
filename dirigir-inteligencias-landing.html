@@ -19,7 +19,7 @@
       <span>expgrowai.mx</span>
     </div>
   </div>
-  <a href="#registro" class="nav-cta">Reservar lugar</a>
+  <a href="#registro" class="nav-cta nav-cta-contact">Contacto</a>
 </nav>
 
 <!-- HERO -->
@@ -27,8 +27,12 @@
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
   <div class="hero-grid section-inner">
+    <div class="sold-out-ribbon" role="status" aria-live="polite">
+      <p class="sold-out-line1"><span class="sold-out-accent">¡Sold out!</span> El curso se ha vendido por completo.</p>
+      <p class="sold-out-line2">En pocos días anunciaremos el calendario del siguiente curso. <strong>Gracias por su preferencia.</strong></p>
+    </div>
     <div class="hero-left">
-      <div class="hero-eyebrow">21, 22, 28 y 30 de abril · Cupo limitado</div>
+      <div class="hero-eyebrow hero-eyebrow-soldout">Última convocatoria · 21, 22, 28 y 30 de abril · Cupos completos</div>
       <h1 class="hero-title">Dirigir<br><em>Inteligencias</em></h1>
       <p class="hero-subtitle">Tienes Gemini o ChatGPT. Los usas todos los días. Y aun así sigues haciendo tú mismo la mitad de lo que ellos podrían hacer por ti.</p>
       <div class="hero-meta">
@@ -46,7 +50,7 @@
         </div>
       </div>
       <div class="hero-cta-group">
-        <a href="#registro" class="btn-primary">Quiero inscribirme →</a>
+        <a href="#registro" class="btn-primary">Escribirnos →</a>
         <a href="#program" class="btn-ghost">Ver el programa</a>
       </div>
     </div>
@@ -358,7 +362,7 @@
           <li>Kit de Dirección con IA</li>
           <li>Materiales de todas las sesiones</li>
         </ul>
-        <a href="#registro" class="btn-price secondary">Inscribirme →</a>
+        <a href="#registro" class="btn-price secondary">Cupos completos — avísame →</a>
       </div>
       <div class="price-card featured">
         <span class="price-type">Equipo corporativo</span>
@@ -370,26 +374,26 @@
           <li>Sesión de seguimiento incluida</li>
           <li>Factura y convenio corporativo</li>
         </ul>
-        <a href="#registro" class="btn-price primary">Cotizar para mi equipo →</a>
+        <a href="#registro" class="btn-price primary">Escribirnos sobre próximas fechas →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- REGISTRO -->
+<!-- CONTACTO (antes registro; mismo id para enlaces internos) -->
 <section id="registro">
   <div class="section-inner">
-    <span class="section-label fade-up">Registro</span>
-    <h2 class="section-title fade-up">Reserva tu lugar</h2>
+    <span class="section-label fade-up">Contacto</span>
+    <h2 class="section-title fade-up">Preguntas o comentarios</h2>
     <div class="form-wrap fade-up">
       <div class="form-info">
-        <p class="section-sub">El cupo es limitado para garantizar práctica real y retroalimentación personalizada en cada sesión.</p>
+        <p class="section-sub"><span class="sold-out-inline"><span class="sold-out-accent">¡Sold out!</span></span> Esta convocatoria ya no tiene cupos. Si quieres enterarte del siguiente curso o tienes dudas sobre el programa, escríbenos con el formulario.</p>
         <div class="form-highlight">
           <div class="fh-row">
             <span class="fh-icon">📅</span>
             <div class="fh-text">
-              <strong>21, 22, 28 y 30 de abril de 2026</strong>
-              Lunes, martes, lunes y jueves
+              <strong>Referencia · abril 2026 (agotado)</strong>
+              21, 22, 28 y 30 · lunes, martes, lunes y jueves
             </div>
           </div>
           <div class="fh-row">
@@ -403,28 +407,28 @@
             <span class="fh-icon">💻</span>
             <div class="fh-text">
               <strong>En vivo por Google Meet</strong>
-              Solo necesitas computadora y conexión
+              Formato del programa
             </div>
           </div>
           <div class="fh-row">
             <span class="fh-icon">👥</span>
             <div class="fh-text">
-              <strong>Máximo 20 participantes</strong>
-              Para garantizar práctica individual
+              <strong>Grupos reducidos</strong>
+              Práctica y retroalimentación en cada sesión
             </div>
           </div>
           <div class="fh-row">
             <span class="fh-icon">💳</span>
             <div class="fh-text">
               <strong>$2,500 MXN</strong>
-              + IVA si requieres factura
+              Referencia de la última convocatoria · + IVA si factura
             </div>
           </div>
           <div class="fh-row">
             <span class="fh-icon">🏢</span>
             <div class="fh-text">
-              <strong>¿Grupo corporativo?</strong>
-              Selecciónalo en el formulario
+              <strong>Equipos y empresas</strong>
+              Cuéntanos en tu mensaje si buscas algo corporativo
             </div>
           </div>
         </div>
@@ -432,9 +436,9 @@
 
       <div class="reg-form">
         <div id="form-container">
-          <h3 class="form-title">Quiero inscribirme</h3>
-          <p class="form-subtitle">Te contactamos en menos de 24 horas para confirmar tu lugar y enviarte los detalles de pago.</p>
-          <form id="reg-form" action="#" method="post" novalidate>
+          <h3 class="form-title">Escríbenos</h3>
+          <p class="form-subtitle">Dudas sobre el contenido, fechas futuras o cualquier comentario. Respondemos lo antes posible.</p>
+          <form id="contact-form" action="#" method="post" novalidate>
             <p class="form-error" id="form-error" role="alert" hidden></p>
             <div class="form-row">
               <div class="form-group">
@@ -443,7 +447,7 @@
               </div>
               <div class="form-group">
                 <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required autocomplete="family-name">
+                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" autocomplete="family-name">
               </div>
             </div>
             <div class="form-group">
@@ -451,42 +455,22 @@
               <input type="email" id="email" name="email" placeholder="tu@correo.com" required autocomplete="email">
             </div>
             <div class="form-group">
-              <label for="empresa">Empresa u organización</label>
-              <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" autocomplete="organization">
+              <label for="empresa">Empresa u organización <span class="label-optional">(opcional)</span></label>
+              <input type="text" id="empresa" name="empresa" placeholder="Si aplica" autocomplete="organization">
             </div>
             <div class="form-group">
-              <label for="cargo">Cargo o rol</label>
-              <input type="text" id="cargo" name="cargo" placeholder="Ej. Gerente de operaciones" autocomplete="organization-title">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Tu pregunta o comentario" required></textarea>
             </div>
-            <div class="form-group">
-              <label for="modalidad">Modalidad de interés</label>
-              <select id="modalidad" name="modalidad" required>
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option value="individual">Individual — uso personal</option>
-                <option value="corporativo-5">Corporativo — 5 a 10 personas</option>
-                <option value="corporativo-mas">Corporativo — más de 10 personas</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="herramienta">¿Qué herramienta usas actualmente?</label>
-              <select id="herramienta" name="herramienta">
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option value="chatgpt">ChatGPT</option>
-                <option value="gemini">Gemini</option>
-                <option value="claude">Claude</option>
-                <option value="varias">Varias</option>
-                <option value="ninguna">Todavía no uso ninguna</option>
-              </select>
-            </div>
-            <button type="submit" class="form-submit">Reservar mi lugar →</button>
-            <p class="form-privacy">Tu información es confidencial. No compartimos datos con terceros. Te contactaremos solo para confirmar tu inscripción.</p>
-            <p class="form-fallback">El envío usa <a href="https://web3forms.com" rel="noopener noreferrer" target="_blank">Web3Forms</a>. ¿Problemas? <a href="mailto:randradedev@gmail.com?subject=Inscripcion%20Dirigir%20Inteligencias">Escríbenos</a>.</p>
+            <button type="submit" class="form-submit">Enviar mensaje →</button>
+            <p class="form-privacy">Tu información es confidencial. No compartimos datos con terceros. Usamos tu correo solo para responderte.</p>
+            <p class="form-fallback">El envío usa <a href="https://web3forms.com" rel="noopener noreferrer" target="_blank">Web3Forms</a>. ¿Problemas? <a href="mailto:randradedev@gmail.com?subject=Contacto%20Dirigir%20Inteligencias">Escríbenos</a>.</p>
           </form>
         </div>
         <div class="form-success" id="form-success">
           <span class="success-icon">✅</span>
-          <h3>¡Listo, recibimos tu registro!</h3>
-          <p>Te escribiremos a tu correo en menos de 24 horas con los detalles de pago y acceso al programa.</p>
+          <h3>¡Gracias por escribirnos!</h3>
+          <p>Recibimos tu mensaje y te responderemos pronto a tu correo.</p>
           <p style="margin-top:0.8rem;">Revisa también tu carpeta de spam por si acaso.</p>
         </div>
       </div>
