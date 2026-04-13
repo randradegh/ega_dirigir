@@ -30,9 +30,16 @@ Abre `http://localhost:8080/dirigir-inteligencias-landing.html` (o `http://local
 
 La clave es pública (pensada para el cliente); no obstante, conviene no compartir commits con claves de entornos que ya no uses.
 
-## Despliegue
+## Despliegue (producción en expgrowai.mx)
 
-Cualquier hosting de archivos estáticos sirve (GitHub Pages, Netlify, Vercel, S3, etc.). Asegúrate de que la ruta de la landing sea la que uses como entrada pública y de que `form-config.js` y el resto de assets carguen con rutas relativas como en el proyecto.
+La landing forma parte del sitio de **Exponential Grow AI** en **[expgrowai.mx](https://expgrowai.mx)**. Este repositorio es el código fuente; **no** se publica en GitHub Pages.
+
+Para actualizar producción, sube al hosting donde esté alojado ese dominio (SFTP, panel del proveedor, `rsync`, etc.) los archivos estáticos de la raíz del proyecto:
+
+- `index.html`, `dirigir-inteligencias-landing.html`, `styles.css`, `main.js`, `form-config.js`
+- `expgrowai_logo_01.png` y cualquier otro asset en la misma carpeta que referencie la HTML
+
+Mantén las **rutas relativas** (`./styles.css`, `./main.js`, etc.) tal como están: deben vivir en el mismo directorio público que la página, o en la subcarpeta donde enlaces la landing desde tu estructura actual.
 
 ## Licencia
 
