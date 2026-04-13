@@ -36,7 +36,10 @@ La **producción** está en **[Vercel](https://vercel.com)** (sitio estático, s
 
 **[https://egadirigircurso.vercel.app/](https://egadirigircurso.vercel.app/)**
 
-El repositorio enlazado al proyecto suele desplegarse en cada push a la rama configurada (p. ej. `main`).
+**Repositorio en GitHub** (el que está conectado al proyecto en Vercel):  
+[https://github.com/randradegh/ega_dirigir_curso](https://github.com/randradegh/ega_dirigir_curso)
+
+Cada push a la rama configurada en Vercel (p. ej. `main`) suele disparar un nuevo despliegue.
 
 **Dominio propio:** si además usas un dominio personalizado (p. ej. **expgrowai.mx**), configúralo en Vercel → *Settings* → *Domains*.
 
