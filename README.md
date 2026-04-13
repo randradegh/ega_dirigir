@@ -30,16 +30,19 @@ Abre `http://localhost:8080/dirigir-inteligencias-landing.html` (o `http://local
 
 La clave es pública (pensada para el cliente); no obstante, conviene no compartir commits con claves de entornos que ya no uses.
 
-## Despliegue (producción en expgrowai.mx)
+## Despliegue (Vercel)
 
-La landing forma parte del sitio de **Exponential Grow AI** en **[expgrowai.mx](https://expgrowai.mx)**. Este repositorio es el código fuente; **no** se publica en GitHub Pages.
+La **producción** está en **[Vercel](https://vercel.com)** (sitio estático, sin paso de build). El repositorio enlazado al proyecto suele desplegarse en cada push a la rama configurada (p. ej. `main`).
 
-Para actualizar producción, sube al hosting donde esté alojado ese dominio (SFTP, panel del proveedor, `rsync`, etc.) los archivos estáticos de la raíz del proyecto:
+**Dominio:** si añades un dominio personalizado (p. ej. **expgrowai.mx**), configúralo en el proyecto en Vercel → *Settings* → *Domains*.
 
-- `index.html`, `dirigir-inteligencias-landing.html`, `styles.css`, `main.js`, `form-config.js`
-- `expgrowai_logo_01.png` y cualquier otro asset en la misma carpeta que referencie la HTML
+**Ajustes típicos del proyecto en Vercel:**
 
-Mantén las **rutas relativas** (`./styles.css`, `./main.js`, etc.) tal como están: deben vivir en el mismo directorio público que la página, o en la subcarpeta donde enlaces la landing desde tu estructura actual.
+- **Framework preset:** Other / sin framework.
+- **Build command:** vacío (no hay compilación).
+- **Root directory:** la raíz del repo (donde están `index.html` y el resto de archivos).
+
+Los assets usan **rutas relativas** (`./styles.css`, `./main.js`, etc.); mantenlos en la misma estructura respecto a los HTML.
 
 ## Licencia
 
