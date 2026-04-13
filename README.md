@@ -36,10 +36,25 @@ La **producción** está en **[Vercel](https://vercel.com)** (sitio estático, s
 
 **[https://egadirigircurso.vercel.app/](https://egadirigircurso.vercel.app/)**
 
-**Repositorio en GitHub** (el que está conectado al proyecto en Vercel):  
+**Repositorio que despliega Vercel (GitHub, privado):**  
 [https://github.com/randradegh/ega_dirigir_curso](https://github.com/randradegh/ega_dirigir_curso)
 
 Cada push a la rama configurada en Vercel (p. ej. `main`) suele disparar un nuevo despliegue.
+
+### Repositorio vs. archivos en producción
+
+Vercel solo publica lo que hay **en ese repo**. La landing completa necesita en la raíz (entre otros) `dirigir-inteligencias-landing.html`, `styles.css`, `main.js`, `form-config.js`, `index.html` y `expgrowai_logo_01.png`. Si el repositorio solo contiene parte de esos archivos, el sitio en **egadirigircurso.vercel.app** se verá incompleto (sin estilos, sin JS, etc.).
+
+Puede haber **otro repositorio** usado solo para desarrollo o copia; lo importante es que el árbol de archivos que quieras en producción termine en **`ega_dirigir_curso`** (por ejemplo haciendo `git push` de esa carpeta al remoto correcto, o unificando en un solo remoto).
+
+**Sincronizar este clon hacia el repo de Vercel** (ajusta si tu remoto ya se llama distinto):
+
+```bash
+git remote add vercel-prod https://github.com/randradegh/ega_dirigir_curso.git   # solo si aún no existe
+git push vercel-prod main
+```
+
+La primera vez puede hacer falta **forzar alineación** si los historiales divergen (`git pull` con estrategia o, con cuidado, `git push --force-with-lease`); mejor pedir ayuda si no estás seguro de perder commits en el otro repo.
 
 **Dominio propio:** si además usas un dominio personalizado (p. ej. **expgrowai.mx**), configúralo en Vercel → *Settings* → *Domains*.
 
