@@ -32,9 +32,13 @@ La clave es pública (pensada para el cliente); no obstante, conviene no compart
 
 ## Despliegue (Vercel)
 
-La **producción** está en **[Vercel](https://vercel.com)** (sitio estático, sin paso de build). El repositorio enlazado al proyecto suele desplegarse en cada push a la rama configurada (p. ej. `main`).
+La **producción** está en **[Vercel](https://vercel.com)** (sitio estático, sin paso de build). URL del proyecto:
 
-**Dominio:** si añades un dominio personalizado (p. ej. **expgrowai.mx**), configúralo en el proyecto en Vercel → *Settings* → *Domains*.
+**[https://egadirigircurso.vercel.app/](https://egadirigircurso.vercel.app/)**
+
+El repositorio enlazado al proyecto suele desplegarse en cada push a la rama configurada (p. ej. `main`).
+
+**Dominio propio:** si además usas un dominio personalizado (p. ej. **expgrowai.mx**), configúralo en Vercel → *Settings* → *Domains*.
 
 **Ajustes típicos del proyecto en Vercel:**
 
